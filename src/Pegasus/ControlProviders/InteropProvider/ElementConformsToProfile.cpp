@@ -166,7 +166,7 @@ Array<CIMInstance> InteropProvider::enumElementConformsToProfileInstances(
                         continue;
                     }
                     CIMName subclassName(
-                        currentElementStr.subString(PEGASUS_DYNAMIC_LEN));
+                        currentElementStr.subString(PEGASUS_DYNAMIC.size()));
                     Array<CIMInstance> elementConformsInstances =
                         cimomHandle.enumerateInstances(opContext,
                         currentNamespace, subclassName, true, false, false,
