@@ -1,0 +1,31 @@
+extraction:
+  cpp:
+    prepare:
+      packages:
+        - libsnmp-dev
+        - libpam0g-dev
+        - libssl-dev
+    before_index:
+      - export PEGASUS_ROOT=$LGTM_SRC
+      - export PEGASUS_HOME=$LGTM_WORKSPACE/build
+      - export PEGASUS_PLATFORM=LINUX_IA64_GNU
+      - export PEGASUS_PAM_AUTHENTICATION=true
+      - export PEGASUS_USE_PAM_STANDALONE_PROC=true
+      - export PEGASUS_HAS_SSL=yes
+      - export PEGASUS_USE_RELEASE_CONFIG_OPTIONS=true
+      - export PEGASUS_USE_RELEASE_DIRS=true
+      - export PEGASUS_NOASSERTS=true
+      - export ENABLE_CMPI_PROVIDER_MANAGER=true
+      - export PEGASUS_ENABLE_USERGROUP_AUTHORIZATION=true
+      - export PEGASUS_USE_SYSLOGS=true
+      - export PATH=$PEGASUS_HOME/bin:/usr/local/bin:$PATH
+      - export PEGASUS_SKIP_MOST_TEST_DIRS=true
+      - export PEGASUS_USE_NET_SNMP=true
+      - export PEGASUS_ENABLE_NET_SNMPV3=true
+      - export PEGASUS_ENABLE_PROTOCOL_WSMAN=true
+      - export PEGASUS_ENABLE_PRIVILEGE_SEPARATION=true
+      - export PEGASUS_ENABLE_CQL=true
+      - export PEGASUS_ENABLE_EXECQUERY=true
+    index:
+      build_command:
+        - make -j2
